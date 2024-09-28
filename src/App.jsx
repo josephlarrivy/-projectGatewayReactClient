@@ -1,26 +1,15 @@
-import { useEffect, useState } from 'react'
-import axios from "axios"
-import './App.css'
+import { BrowserRouter } from 'react-router-dom'
+import '../src/styles/App.css'
+import DevNavbar from './common/DevNavbar'
+import Router from '../src/utilities/Router'
 
 function App() {
 
-  const doTestRequest = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/data/test/testGateway')
-      console.log(response)
-    } catch (error) {
-      console.error("Error making the request", error)
-    }
-  }
-
-  useEffect(() => {
-    doTestRequest()
-  }, [])
-
   return (
-    <div>
-      
-    </div>
+    <BrowserRouter>
+      <DevNavbar />
+      <Router />
+    </BrowserRouter>
   )
 }
 
